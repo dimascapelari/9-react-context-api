@@ -8,10 +8,14 @@ import { useTitleColorContext } from "../hooks/useTitleColorContext";
 
 import { useLoggedContext } from "../hooks/useLoggedContext";
 
+import { useRedContext } from "../hooks/useRedContext";
+
 export const Home = () => {
   const { counter } = useCounterContext();
 
   const { logged, setLogged } = useLoggedContext();
+
+  const { red, setRed } = useRedContext();
 
   // 5 - context mais complexo
   const { color, dispatch } = useTitleColorContext();
@@ -37,10 +41,44 @@ export const Home = () => {
       </div>
 
       <hr></hr>
-      <div>
+      <div style={{ marginTop: "50px" }}>
         <h1>{logged === true ? <p>Logado</p> : <p>Deslogado</p>}</h1>
-        <button onClick={() => setLogged(!logged)}>Login</button>
+        <button
+          onClick={() => setLogged(!logged)}
+          style={{
+            width: "100px",
+            height: "30px",
+            margin: "50px",
+            borderRadius: "10px",
+          }}
+        >
+          Login
+        </button>
       </div>
+      <hr />
+      <div style={{ marginTop: "50px" }}>
+        {red === true ? (
+          <h2 style={{ color: "red" }}>É vermelho</h2>
+        ) : (
+          <h2>Não é vermelho</h2>
+        )}
+      </div>
+      <button
+        onClick={() => setRed(!red)}
+        style={{
+          width: "100px",
+          height: "30px",
+          margin: "50px",
+          borderRadius: "10px",
+        }}
+      >
+        {red === false ? (
+          <span style={{ color: "red" }}>Ficar vermelho</span>
+        ) : (
+          "Tirar vermelho"
+        )}
+      </button>
+      <hr />
     </div>
   );
 };
