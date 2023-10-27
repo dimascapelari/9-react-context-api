@@ -73,9 +73,9 @@ export const Home = () => {
         }}
       >
         {red === false ? (
-          <span style={{ color: "red" }}>Ficar vermelho</span>
+          <span style={{ color: "red" }}>Ficar Vermelho</span>
         ) : (
-          "Tirar vermelho"
+          "Tirar Vermelho"
         )}
       </button>
       <hr />
